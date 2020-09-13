@@ -64,20 +64,19 @@ int menu() {
 			break;
 		case 4:
 			if (bandera3 == 1) {
-				if (suma(&calculoSuma, numero1, numero2) == 0) {
-					;
-					printf("\nEl resultado de %.1f + %.1f es %.1f: ", numero1,
-							numero2, calculoSuma);
-				}
+				suma(&calculoSuma, numero1, numero2);
+				printf("\nEl resultado de %.1f + %.1f es %.1f: ", numero1,
+						numero2, calculoSuma);
+
 				resta(&calculoResta, numero1, numero2);
 				printf("\nEl resultado de %.1f - %.1f es %.1f: ", numero1,
 						numero2, calculoResta);
 				division(&calculoDiv, numero1, numero2);
-				if (numero2 != 0) {
+				if(numero2!=0) {
 					printf("\nEl resultado de %.1f / %.1f es %.1f: ", numero1,
 							numero2, calculoDiv);
 				} else {
-					printf("\nNo se puede dividir por 0");
+					printf("\n¡No se puede dividir por 0!");
 				}
 				multiplicacion(&calculoMultip, numero1, numero2);
 				printf("\nEl resultado de %.1f * %.1f es %.1f: ", numero1,
@@ -85,10 +84,11 @@ int menu() {
 				factoreo(&calculoFact, numero1);
 				printf("\nEl factorial de %.1f es: %.1f", numero1, calculoFact);
 				factoreo(&calculoFact, numero2);
-				printf("\nEl factorial de %.1f es: %.1f\n", numero2, calculoFact);
+				printf("\nEl factorial de %.1f es: %.1f\n", numero2,
+						calculoFact);
 
-			    printf("\n[Ingrese 'r' para reiniciar]\n"
-			    		"[Cualquier tecla para salir]: ");
+				printf("\n[Ingrese 'r' para reiniciar]\n"
+						"[Cualquier tecla para salir]: ");
 				fflush(stdin);
 				scanf("%c", &respuesta);
 				bandera1 = 0;
@@ -102,7 +102,7 @@ int menu() {
 			break;
 		case 5:
 			printf("\n¡Adios, hasta luego!");
-			respuesta='j';
+			respuesta = 'j';
 			break;
 		default:
 			printf("Ingrese opcion valida\n");
@@ -124,10 +124,10 @@ int suma(float *pCalculoResultSum, float operando1, float operando2) {
 }
 
 int resta(float *pCalculoResultRes, float operando1, float operando2) {
-	int retorno =-1;
+	int retorno = -1;
 	if (pCalculoResultRes != NULL) {
 		*pCalculoResultRes = operando1 - operando2;
-		retorno=0;
+		retorno = 0;
 	}
 	return retorno;
 }
@@ -137,15 +137,15 @@ int division(float *pCalculoResultDiv, float operando1, float operando2) {
 	if (pCalculoResultDiv != NULL && operando2 != 0) {
 		*pCalculoResultDiv = (float) operando1 / operando2;
 		retorno = 0;
-	}
+		}
 	return retorno;
 
 }
 int multiplicacion(float *pCalculoResultMul, float operando1, float operando2) {
-	int retorno=-1;
-	if(pCalculoResultMul != NULL){
+	int retorno = -1;
+	if (pCalculoResultMul != NULL) {
 		*pCalculoResultMul = operando1 * operando2;
-		retorno=0;
+		retorno = 0;
 	}
 	return retorno;
 }
@@ -167,10 +167,10 @@ double factoreo(float *pCalculoResultFac, float operando1) {
 				*pCalculoResultFac = 1;
 				retorno = 0;
 			} else {
-				printf("Ingrese un valor positivo\n");
+				printf("\n¡Ingrese un valor positivo!\n");
 			}
 		} else {
-			printf("Ingrese un numero entero\n");
+			printf("\n¡Ingrese un numero entero!\n");
 		}
 	}
 	return retorno;

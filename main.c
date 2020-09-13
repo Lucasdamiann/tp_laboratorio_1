@@ -11,7 +11,8 @@
 
 int main() {
 	setbuf(stdout, NULL);
-	if(menu()){}
+	if (menu()) {
+	}
 
 	return 0;
 }
